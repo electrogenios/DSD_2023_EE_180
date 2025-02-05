@@ -1,0 +1,18 @@
+module lab_3(
+input wire  a,
+input wire b,
+input wire c,
+output wire x,
+output wire y
+    );
+    wire not_c, or_ab, nand_ab, and_op1, and_op2, and_op3 ;
+    assign not_c = ~c;
+    assign or_ab = a| b;
+    assign nand_ab = ~(a&b);
+    assign and_op1 = nand_ab ^ or_ab;
+    assign and_op2 = not_c ^ or_ab;
+    assign and_op3 = or_ab & and_op1;
+    
+    assign x = and_op2;
+    assign y = and_op3;    
+endmodule
